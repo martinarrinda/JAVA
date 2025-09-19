@@ -11,7 +11,7 @@ public class Registro_de_contraseñas_seguras {
                 esValida = false;
             } 
             if (!contraseña.matches(".*[A-Z].*")){
-                System.out.println("Tu contraseña no tiene ni una mayuscula");
+                System.out.println("Tu contraseña no tiene ni una mayuscula.");
                 esValida = false;
             }
             if (!contraseña.matches(".*[0-9].*")){
