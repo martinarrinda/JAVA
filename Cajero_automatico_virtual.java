@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Cajero_automatico_virtual {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -7,15 +8,25 @@ public class Cajero_automatico_virtual {
         System.out.println("Bienvenido usario, elige tu PIN: ");
         String pin_creado = scanner.nextLine();
         int contador = 0;
+        boolean sesionIniciada = false; 
+
         while (contador < 3) {
             System.out.println("Introduzca su PIN para iniciar sesion: ");
             String iniciar_sesion = scanner.nextLine();
             if (pin_creado.equals(iniciar_sesion)){
                 System.out.println("Sesion iniciada correctamente.");
+                sesionIniciada = true; 
                 break;
             }
             contador +=1;
         }
+
+        if (!sesionIniciada) {  
+            System.out.println("Has excedido el número de intentos. Programa terminado.");
+            scanner.close();
+            return; 
+        }
+
         while (true){
             System.out.println("1. Consultar saldo");
             System.out.println("2. Depositar dinero");
@@ -49,18 +60,17 @@ public class Cajero_automatico_virtual {
                 if (dinero.isEmpty()){
                     System.out.println("Saldo insuficiente");;
                 }
-                else {int saldo = dinero.get(0);
-                dinero.set(0, saldo - retirar);
-                System.out.println(retirar + " euros retirados de tu cuenta.");
+                else {
+                    int saldo = dinero.get(0);
+                    dinero.set(0, saldo - retirar);
+                    System.out.println(retirar + " euros retirados de tu cuenta.");
                 }
-
             }
             if (opcion == 4) {
                     System.out.println("Saliendo...");
                     break;
                 } 
-                 
         }
-    scanner.close();
+        scanner.close();
     }
 }
