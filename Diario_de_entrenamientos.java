@@ -7,8 +7,6 @@ public class Diario_de_entrenamientos {
         ArrayList<String> Tipo = new ArrayList<>();
         ArrayList<Integer> Duracion = new ArrayList<>();
         ArrayList<Integer> Calorias = new ArrayList<>();
-        int total_entrenado = 0;
-        int total_quemado= 0;
 
         while (true) {
             System.out.println("Que tipo de ejercicio has echo hoy? ");
@@ -32,9 +30,10 @@ public class Diario_de_entrenamientos {
                     System.out.println("1. Ver todas las sesiones registradas.");
                     System.out.println("2. Mostrar el total de minutos entrenados en la semana.");
                     System.out.println("3. Mostrar el total de calorías quemadas.");
-                    System.out.println("4. Salir");
-                    System.out.println("Elige una ocpion 1-4: ");
+                    System.out.println("4. Volver al menu principal");
+                    System.out.print("Elige una opcion 1-4: ");
                     int opciones = scanner.nextInt();
+                    scanner.nextLine();
 
                     if (opciones == 1) {
                         if (ejercicio.isEmpty()) {
@@ -52,6 +51,7 @@ public class Diario_de_entrenamientos {
                             System.out.println("No tienes ningun ejercicio registrado.");
                         } 
                         else {
+                            int total_entrenado = 0;
                             for (Integer minutos_registrados : Duracion) {
                                total_entrenado += minutos_registrados;
                             }
@@ -64,6 +64,7 @@ public class Diario_de_entrenamientos {
                             System.out.println("No tienes ningun ejercicio registrado.");
                         } 
                         else {
+                            int total_quemado= 0;
                             for (Integer kcal_quemadas : Calorias) {
                                 total_quemado += kcal_quemadas;
                             }
@@ -71,11 +72,18 @@ public class Diario_de_entrenamientos {
                         }
                     }
                     if (opciones == 4){
-                        System.out.println("Saliendo...");
+                        System.out.println("Saliendo al menu principal...");
                         break;
                     }
                 }
             }
+            System.out.println("Quieres salir del programa?");
+            String salir = scanner.nextLine();
+            if (salir.equalsIgnoreCase("Si")){
+                scanner.close();
+                return;
+            }
         }
+        
     }
 }
