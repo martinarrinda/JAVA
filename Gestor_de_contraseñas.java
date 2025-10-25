@@ -41,8 +41,7 @@ public class Gestor_de_contraseñas {
                 default:
                     break;
             }
-        }
-        
+        }  
     }
     public static boolean esegura (String guardar_contraseña){
         return guardar_contraseña.length() >= 8
