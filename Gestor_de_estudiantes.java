@@ -72,7 +72,7 @@ public class Gestor_de_estudiantes {
         System.out.println("A que estudiante quires buscar?");
         String buscar_estudiante = scanner.nextLine();
         if(nombres.contains(buscar_estudiante)){
-            System.out.println("Estudiante enocntrado en la lista");
+            System.out.println("Estudiante encontrado en la lista");
         }
         else{
             System.out.println("Estudiante no encontrado.");
